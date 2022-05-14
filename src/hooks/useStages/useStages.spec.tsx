@@ -1,6 +1,6 @@
 import { act, cleanup, renderHook } from '@testing-library/react';
-import useStages from 'Hooks/useStages';
-import { Stage } from 'Types/enums/stage';
+import useStages from 'hooks/useStages';
+import { Stage } from 'types/enums/stage';
 
 afterEach(cleanup);
 

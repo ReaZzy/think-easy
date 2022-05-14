@@ -5,7 +5,6 @@ export interface IStage<T> {
   next?: T;
   default?: boolean;
 }
-
 export interface StagesResponse<T = string> {
   currentStage: IStage<T> | undefined;
   getPreviousStage: () => void;
