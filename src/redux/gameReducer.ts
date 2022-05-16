@@ -13,9 +13,30 @@ const gameReducer = createSlice({
   initialState,
   reducers: {
     setValue: (state, action: PayloadAction<InitialState>) => {
-      return { ...state, ...action.payload };
+      return {
+        ...state,
+        ...(Object.keys(action.payload) as Array<keyof InitialState>).reduce(
+          (acc: InitialState, question) => {
+            acc[question] = action.payload[question]
+              ?.replace(/\s+/g, ' ')
+              ?.trimStart();
+            return acc;
+          },
+          {}
+        ),
+      };
+    },
+    clear: (state) => {
+      return {
+        ...state,
+        where: '',
+        when: '',
+        what: '',
+        who: '',
+      };
     },
   },
 });
-export const { setValue } = gameReducer.actions;
+
+export const { setValue, clear } = gameReducer.actions;
 export default gameReducer.reducer;

@@ -1,6 +1,9 @@
 export enum Stage {
-  WHO = 'whoStage',
-  WHAT = 'whatStage',
-  WHEN = 'whenStage',
-  WHERE = 'whereStage',
+  WHO = 'who',
+  WHAT = 'what',
+  WHEN = 'when',
+  WHERE = 'where',
+  COMPLETE = 'complete',
 }
+
+export type QuestionStage = Exclude<Stage, Stage.COMPLETE>;

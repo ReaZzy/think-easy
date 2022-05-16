@@ -1,5 +1,6 @@
 import React, { DetailedHTMLProps, InputHTMLAttributes } from 'react';
 import { Stage } from 'types/enums/stage';
+import s from './index.module.css';
 
 interface InputStageProps
   extends DetailedHTMLProps<
@@ -13,8 +14,7 @@ interface InputStageProps
 const InputStage: React.FC<InputStageProps> = React.memo(
   ({ value, stage, ...props }) => {
     return (
-      <div>
-        {stage} {value}
+      <div className={s.stage}>
         <input value={value} {...props} />
       </div>
     );
