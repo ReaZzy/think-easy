@@ -73,7 +73,6 @@ const App: React.FC = () => {
           <InputStage
             onChange={(e) => handleChange({ who: e.target.value })}
             value={game.who}
-            stage={Stage.WHO}
             placeholder={titles[Stage.WHO]}
           />
         );
@@ -82,7 +81,6 @@ const App: React.FC = () => {
           <InputStage
             onChange={(e) => handleChange({ what: e.target.value })}
             value={game.what}
-            stage={Stage.WHAT}
             placeholder={titles[Stage.WHAT]}
           />
         );
@@ -91,7 +89,6 @@ const App: React.FC = () => {
           <InputStage
             onChange={(e) => handleChange({ when: e.target.value })}
             value={game.when}
-            stage={Stage.WHEN}
             placeholder={titles[Stage.WHEN]}
           />
         );
@@ -100,7 +97,6 @@ const App: React.FC = () => {
           <InputStage
             onChange={(e) => handleChange({ where: e.target.value })}
             value={game.where}
-            stage={Stage.WHERE}
             placeholder={titles[Stage.WHERE]}
           />
         );
@@ -159,12 +155,13 @@ const App: React.FC = () => {
   );
 
   return (
-    <div className="App">
+    <div className="App" data-testid={'App'}>
       <Steps current={history.length}>
         {questionSteps}
         <Steps.Step
           title={'Result'}
           onClick={() => goToStage(Stage.COMPLETE)}
+          data-testid={'ResultStage'}
           style={{
             pointerEvents: `${isComplete ? 'auto' : 'none'}`,
           }}

@@ -10,7 +10,7 @@ interface CompleteStageProps {
 const CompleteStage: React.FC<CompleteStageProps> = React.memo(
   ({ what, when, where, who }) => {
     return (
-      <h3>
+      <h3 data-testid={'ResultStageComponent'}>
         {who} {what} {where} {when}
       </h3>
     );

@@ -1,5 +1,4 @@
 import React, { DetailedHTMLProps, InputHTMLAttributes } from 'react';
-import { Stage } from 'types/enums/stage';
 import s from './index.module.css';
 
 interface InputStageProps
@@ -8,14 +7,13 @@ interface InputStageProps
     HTMLInputElement
   > {
   value: string;
-  stage: Stage;
 }
 
 const InputStage: React.FC<InputStageProps> = React.memo(
-  ({ value, stage, ...props }) => {
+  ({ value, ...props }) => {
     return (
       <div className={s.stage}>
-        <input value={value} {...props} />
+        <input value={value} {...props} data-testid={'InputStage'} />
       </div>
     );
   }
